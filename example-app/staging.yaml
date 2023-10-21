@@ -16,7 +16,10 @@ spec:
       values: |-
         environment: staging
 
+        image:
+          tag: v0.0.16
+
         ingress:
           enabled: true
           host: app-staging.k8s.lbogdan.ro
-          tls: true
+          # tls: true
