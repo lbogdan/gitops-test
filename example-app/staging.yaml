@@ -17,6 +17,7 @@ spec:
         environment: staging
 
         image:
+          registry: cr.37-27-0-62.sslip.io
           tag: v0.0.16
 
         ingress:
