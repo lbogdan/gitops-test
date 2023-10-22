@@ -8,25 +8,12 @@ spec:
     namespace: kube-system
     server: https://kubernetes.default.svc
   project: default
-  source:
-    chart: metrics-server
+  sources:
+  - chart: metrics-server
     helm:
-      values: |-
-        affinity:
-          nodeAffinity:
-            requiredDuringSchedulingIgnoredDuringExecution:
-              nodeSelectorTerms:
-              - matchExpressions:
-                - key: node-role.kubernetes.io/control-plane
-                  operator: Exists
-        apiService:
-          create: true
-        extraArgs:
-        - --kubelet-preferred-address-types=InternalIP
-        priorityClassName: system-cluster-critical
-        tolerations:
-        - effect: NoSchedule
-          key: node-role.kubernetes.io/control-plane
-          operator: Exists
+      valueFiles:
+      - $values/infra/helm/metrics-server-values.yaml
     repoURL: https://charts.bitnami.com/bitnami
     targetRevision: 6.5.5
+  - repoUrl: https://github.com/lbogdan/gitops-test.git
+    ref: values
