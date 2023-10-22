@@ -15,5 +15,5 @@ spec:
       - $values/infra/helm/metrics-server-values.yaml
     repoURL: https://charts.bitnami.com/bitnami
     targetRevision: 6.5.5
-  - repoUrl: https://github.com/lbogdan/gitops-test.git
+  - repoURL: https://github.com/lbogdan/gitops-test.git
     ref: values
